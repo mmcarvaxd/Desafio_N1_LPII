@@ -1,6 +1,7 @@
 package common.VO;
+import common.Generic.Model;
 
-public class Item {
+public class Item extends Model {
     public String Name;
     public String PurchasePlace;
     public String Description;
@@ -52,5 +53,4 @@ public class Item {
     private void SetSuggestedValue(){
         this.SuggestedValue = this.PurchaseValue * 2;
     }
-
 }
