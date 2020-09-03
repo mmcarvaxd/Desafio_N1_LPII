@@ -1,12 +1,15 @@
 package DAO;
 
 import common.VO.*;
-
 import java.util.List;
-
 import common.Generic.*;
+import java.io.File;
 
-public class ItemDAO implements IDAO<Item> {
+public class ItemDAO extends DAO<Item> {
+
+    public ItemDAO(String nameDB) {
+        super(nameDB);
+    }
 
     @Override
     public List<Item> list() {
