@@ -1,6 +1,7 @@
 package common.VO;
 
-public class Item {
-    public int id;
-    public String nome;
+import common.Generic.Model;
+
+public class Item extends Model {
+    
 }
