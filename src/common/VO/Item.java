@@ -38,8 +38,8 @@ public class Item extends Model {
         return PurchaseValue;
     }
     public void SetPurchaseValue(double PurchaseValue){
-        SetSuggestedValue();
         this.PurchaseValue = PurchaseValue;
+        SetSuggestedValue();
     }
     public double GetMarginValue(){
         return MarginValue;
