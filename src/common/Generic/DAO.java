@@ -4,7 +4,12 @@ import java.util.List;
 import java.io.File;
 
 public abstract class DAO<E extends Model> {
-    public String name;
+    private String name;
+    private String pathName;
+
+    public String getPathName() {
+        return pathName;
+    }
 
     public abstract List<E> list();
 
@@ -25,6 +30,7 @@ public abstract class DAO<E extends Model> {
             
             //Create db file if not exists
             String fileName = helper + "\\" + name + ".tft";
+            pathName = fileName;
             File file = new File(fileName);
             boolean exists = file.exists();
 

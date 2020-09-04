@@ -2,13 +2,13 @@ package common.VO;
 import common.Generic.Model;
 
 public class Item extends Model {
-    public String Name;
-    public String PurchasePlace;
-    public String Description;
-    public double TagValue;
-    public double PurchaseValue;
-    public double MarginValue;
-    public double SuggestedValue; 
+    private String Name;
+    private String PurchasePlace;
+    private String Description;
+    private double TagValue;
+    private double PurchaseValue;
+    private double MarginValue;
+    private double SuggestedValue; 
 
     public String GetName(){
         return Name;
