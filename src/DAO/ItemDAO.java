@@ -3,7 +3,7 @@ package DAO;
 import common.VO.*;
 import java.util.List;
 import common.Generic.*;
-import java.io.File;
+import com.google.gson.Gson;
 
 public class ItemDAO extends DAO<Item> {
 
@@ -19,13 +19,19 @@ public class ItemDAO extends DAO<Item> {
 
     @Override
     public Item read() {
-        // TODO Auto-generated method stub
+
+        //String  jsonString = //doSthToGetJson(); //Get the Json
+        Item data =new Item() ; 
+        Gson gson = new Gson();  
+        //data= gson.fromJson(jsonString,MyData.class); 
         return null;
     }
 
     @Override
-    public Item create() {
-        // TODO Auto-generated method stub
+    public Item create(Item Item) {
+        Gson gson = new Gson();  
+        String Json = gson.toJson(Item);
+
         return null;
     }
 

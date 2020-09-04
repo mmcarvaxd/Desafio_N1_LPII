@@ -10,7 +10,7 @@ public abstract class DAO<E extends Model> {
 
     public abstract E read();
 
-    public abstract E create();
+    public abstract E create(E item);
 
     public abstract E update();
 
