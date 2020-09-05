@@ -13,13 +13,13 @@ public abstract class DAO<E extends Model> {
 
     public abstract List<E> list();
 
-    public abstract E read();
+    public abstract E read(int id);
 
     public abstract E create(E item);
 
-    public abstract E update();
+    public abstract E update(E item);
 
-    public abstract void delete();
+    public abstract void delete(int id);
 
     public void verifyDB() {
         try {
