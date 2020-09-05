@@ -88,40 +88,18 @@ public class ItemTextDAO extends DAO<Item> {
 
     @Override
     public Item update(Item item) {
-        try {
-            List<Item> itemList = this.list();
-            
-            Item itemToExclude = new Item();
-            for (Item currentItem : itemList) {
-                if(item.getId() == currentItem.getId()) {
-                    itemToExclude = currentItem;
-                }
-            }
-
-            itemList.remove(itemToExclude);
-            itemList.add(item);
-
-            Gson gson = new Gson();
-            String json = gson.toJson(itemList);
-
-            FileWriter writter = new FileWriter(this.getPathName());
-            writter.write(json);
-            writter.close();
-
-            return item;
-        } catch (Exception e) {
-            return null;
-        }
+        this.delete(item.getId());
+        return this.create(item);
     }
 
     @Override
     public void delete(int id) {
         try {
             List<Item> itemList = this.list();
-            
+
             Item itemToExclude = new Item();
             for (Item currentItem : itemList) {
-                if(id == currentItem.getId()) {
+                if (id == currentItem.getId()) {
                     itemToExclude = currentItem;
                 }
             }
