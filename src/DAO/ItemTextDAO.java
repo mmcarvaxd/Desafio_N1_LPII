@@ -36,8 +36,8 @@ public class ItemTextDAO extends DAO<Item> {
             }.getType());
 
             return itens;
-        } catch (Exception e) {
-            return null;
+        } catch(Exception e) {
+            return new ArrayList<Item>();
         }
     }
 
@@ -60,9 +60,9 @@ public class ItemTextDAO extends DAO<Item> {
     public Item create(Item item) {
         try {
             List<Item> itens = this.list();
-            if (itens == null) {
-                itens = new ArrayList<Item>();
-            }
+
+            int id = itens.size() + 1;
+            item.setId(id);
 
             itens.add(item);
 
