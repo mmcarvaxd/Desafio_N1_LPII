@@ -7,6 +7,8 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import common.Generic.*;
 import com.google.gson.Gson;
@@ -36,7 +38,7 @@ public class ItemTextDAO extends DAO<Item> {
             }.getType());
 
             return itens;
-        } catch(Exception e) {
+        } catch (Exception e) {
             return new ArrayList<Item>();
         }
     }
@@ -47,13 +49,19 @@ public class ItemTextDAO extends DAO<Item> {
         if (itens == null) {
             return null;
         }
+        Predicate<Item> predict = item -> item.getId() == id;
 
-        for (Item item : itens) {
-            //if
+        var x = itens.stream().filter(predict).collect(Collectors.toList());
+        try {
+            if (x.get(0) == null) {
+                return null;
+            }
+
+            return x.get(0);
+        } catch (Exception e) {
+            return null;
         }
 
-
-        return null;
     }
 
     @Override
@@ -79,13 +87,13 @@ public class ItemTextDAO extends DAO<Item> {
     }
 
     @Override
-    public Item update() {
+    public Item update(Item item) {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public void delete() {
+    public void delete(int id) {
         // TODO Auto-generated method stub
 
     }

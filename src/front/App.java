@@ -7,11 +7,8 @@ import business.business;
 public class App {
     public static void main(String[] args) {
         ItemTextDAO a = new ItemTextDAO();
-        Item item = new Item();
+        Item x = a.read(1);
 
-        item.SetDescription("Teste");
-        item.SetName("Teste");
-
-        a.create(item);
+        
     }
 }
