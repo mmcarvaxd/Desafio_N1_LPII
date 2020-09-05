@@ -116,8 +116,29 @@ public class ItemTextDAO extends DAO<Item> {
 
     @Override
     public void delete(int id) {
-        // TODO Auto-generated method stub
+        try {
+            List<Item> itemList = this.list();
+            
+            Item itemToExclude = new Item();
+            for (Item currentItem : itemList) {
+                if(id == currentItem.getId()) {
+                    itemToExclude = currentItem;
+                }
+            }
 
+            itemList.remove(itemToExclude);
+
+            Gson gson = new Gson();
+            String json = gson.toJson(itemList);
+
+            FileWriter writter = new FileWriter(this.getPathName());
+            writter.write(json);
+            writter.close();
+
+            return;
+        } catch (Exception e) {
+            return;
+        }
     }
 
 }
