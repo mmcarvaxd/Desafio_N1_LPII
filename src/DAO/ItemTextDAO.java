@@ -31,20 +31,28 @@ public class ItemTextDAO extends DAO<Item> {
             sc.close();
 
             List<Item> itens = new ArrayList<Item>();
-            Gson gson = new Gson();  
-            itens = gson.fromJson(json, new TypeToken<List<Item>>(){}.getType()); 
+            Gson gson = new Gson();
+            itens = gson.fromJson(json, new TypeToken<List<Item>>() {
+            }.getType());
 
             return itens;
-        } catch(Exception e) {
+        } catch (Exception e) {
             return null;
         }
     }
 
     @Override
-    public Item read() {
-        // Item data =new Item(); 
-        // Gson gson = new Gson();  
-        // data= gson.fromJson(jsonString, Item.class); 
+    public Item read(int id) {
+        List<Item> itens = this.list();
+        if (itens == null) {
+            return null;
+        }
+
+        for (Item item : itens) {
+            //if
+        }
+
+
         return null;
     }
 
@@ -52,20 +60,20 @@ public class ItemTextDAO extends DAO<Item> {
     public Item create(Item item) {
         try {
             List<Item> itens = this.list();
-            if(itens == null) {
+            if (itens == null) {
                 itens = new ArrayList<Item>();
             }
-            
+
             itens.add(item);
-    
-            Gson gson = new Gson();  
+
+            Gson gson = new Gson();
             String json = gson.toJson(itens);
             FileWriter writter = new FileWriter(this.getPathName());
             writter.write(json);
             writter.close();
 
             return item;
-        } catch(Exception e) {
+        } catch (Exception e) {
             return null;
         }
     }
@@ -81,5 +89,5 @@ public class ItemTextDAO extends DAO<Item> {
         // TODO Auto-generated method stub
 
     }
-    
+
 }
