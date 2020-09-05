@@ -6,9 +6,8 @@ import business.business;
 
 public class App {
     public static void main(String[] args) {
-        ItemTextDAO a = new ItemTextDAO();
-        Item x = a.read(1);
-
         
+        ItemTextDAO po = new ItemTextDAO();
+        System.out.println(po.read(3));
     }
 }
