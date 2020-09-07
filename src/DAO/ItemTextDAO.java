@@ -77,9 +77,26 @@ public class ItemTextDAO extends DAO<Item> {
     public Item create(Item item) {
         try {
             List<Item> itens = this.list();
+            Collections.sort(itens, new Comparator<Item>() {
+                public int compare(Item c1, Item c2) {
+                  if (c1.getId() < c2.getId()) return -1;
+                  if (c1.getId() > c2.getId()) return 1;
+                  return 0;
+                }});
 
-            int id = itens.size() + 1;
-            item.setId(id);
+            
+            if(item.getId() == 0) {
+                int id = 0;
+
+                if(itens.size() == 0) {
+                    id = 1;
+                } else {
+                    Item lastItem = itens.get(itens.size() - 1);
+                    id = lastItem.getId() + 1;
+                }
+                
+                item.setId(id);
+            }
 
             itens.add(item);
 
