@@ -5,6 +5,8 @@ import common.VO.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.function.Predicate;
@@ -37,6 +39,13 @@ public class ItemTextDAO extends DAO<Item> {
             itens = gson.fromJson(json, new TypeToken<List<Item>>() {
             }.getType());
 
+            Collections.sort(itens, new Comparator<Item>() {
+                public int compare(Item c1, Item c2) {
+                  if (c1.getId() < c2.getId()) return -1;
+                  if (c1.getId() > c2.getId()) return 1;
+                  return 0;
+                }});
+                
             return itens;
         } catch (Exception e) {
             return new ArrayList<Item>();
