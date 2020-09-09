@@ -1,14 +1,16 @@
-## Getting Started
+# Aplicação LPII - Cadastro de itens para estoque!
+## Antes de Rodar
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+ - JDK 11
+- Clonar o projeto ```git clone
+    https://github.com/mmcarvaxd/Desafio_N1_LPII.git```;
+## Para rodar o projeto:
 
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-## Dependency Management
-
-The `JAVA DEPENDENCIES` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-pack/blob/master/release-notes/v0.9.0.md#work-with-jar-files-directly).
+ - Visual Studio Code:
+ 1. Ir até o arquivo ```src/front/App.java```;
+ 2. Rodar o programa;
+ 
+ - IntelliJ
+ 1. Trocar para a branch do intelliJ ```git checkout intelliJ```
+ 1. Ir até o arquivo ```src/front/App.java```;
+ 2. Rodar o programa
